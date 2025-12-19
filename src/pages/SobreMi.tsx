@@ -29,7 +29,7 @@ const SobreMi = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute bottom-6 left-6 z-20">
-                    <p className="text-white/60 text-sm font-mono tracking-wider">ID: 202173003-8</p>
+                    <p className="text-white/60 text-sm font-mono tracking-wider">ID: 21253558-3</p>
                     <p className="text-white text-lg font-medium">UTFSM · Chile</p>
                   </div>
                 </div>
@@ -48,7 +48,7 @@ const SobreMi = () => {
                   <p className="text-sm tracking-[0.2em] uppercase font-medium">Sobre mi historia</p>
                 </div>
                 <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
-                  Ingenyiería con <br />
+                  Ingeniería con <br />
                   <span className="text-zinc-600">propósito humano.</span>
                 </h1>
               </motion.div>
