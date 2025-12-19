@@ -84,7 +84,7 @@ const Experiencia = () => {
               Mi Experiencia
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Una trayectoria que combina liderazgo estudiantil, emprendimiento familiar y desarrollo profesional, siempre con un enfoque en el impacto positivo.
+              Un poco de todo: organización de eventos, liderazgo estudiantil, emprendimiento familiar y proyectos universitarios. Cada experiencia me ha dejado algo valioso.
             </p>
           </div>
         </div>

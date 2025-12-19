@@ -29,7 +29,7 @@ const Index = () => {
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg animate-fade-up opacity-0 stagger-3">
-                Apasionado por la intersección entre <span className="text-foreground font-medium">tecnología</span>, <span className="text-foreground font-medium">salud</span> y <span className="text-foreground font-medium">rendimiento deportivo</span>. Mi visión es desarrollar soluciones innovadoras que mejoren la calidad de vida de las personas a través de la bioingeniería y la neurociencia.
+                Me encanta entender cómo funcionan las cosas y buscar formas de mejorarlas. Estudio ingeniería, juego fútbol, leo bastante, y siempre ando buscando nuevos desafíos donde pueda aprender y aportar.
               </p>
 
               <div className="flex flex-wrap gap-4 animate-fade-up opacity-0 stagger-4">
@@ -84,21 +84,21 @@ const Index = () => {
             {[
               {
                 icon: Brain,
-                title: "Neurociencia",
+                title: "Curiosidad",
                 description:
-                  "Explorando cómo la tecnología puede potenciar el rendimiento cognitivo y el bienestar mental en deportistas de élite.",
+                  "Siempre preguntándome el porqué de las cosas. Me gusta investigar, probar ideas nuevas y aprender de cada proyecto.",
               },
               {
                 icon: Heart,
-                title: "Bienestar Humano",
+                title: "Personas",
                 description:
-                  "Desarrollando soluciones que prioricen la salud integral y la calidad de vida de las personas.",
+                  "Al final del día, lo que más me motiva es trabajar en cosas que tengan un impacto real en la vida de las personas.",
               },
               {
                 icon: Zap,
-                title: "Alto Rendimiento",
+                title: "Acción",
                 description:
-                  "Aplicando ingeniería innovadora para optimizar el desempeño deportivo y la recuperación.",
+                  "Prefiero hacer que solo planear. Me gusta involucrarme, probar cosas y aprender sobre la marcha.",
               },
             ].map((item, index) => (
               <div
@@ -129,7 +129,7 @@ const Index = () => {
               ¿Listo para colaborar?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Estoy abierto a oportunidades de pasantías, proyectos de investigación y colaboraciones en el ámbito de la bioingeniería, neurociencia y tecnología aplicada al deporte.
+              Si tienes alguna oportunidad, proyecto o idea en mente, me encantaría conversarlo. Estoy abierto a todo tipo de colaboraciones.
             </p>
             <Link
               to="/contacto"

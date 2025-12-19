@@ -159,36 +159,11 @@ const Proyectos = () => {
         <div className="section-container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              Hacia el futuro
+              ¿Qué sigue?
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Mi objetivo es aplicar estos conocimientos técnicos en proyectos que combinen <span className="text-foreground font-medium">bioingeniería</span>, <span className="text-foreground font-medium">neurociencia</span> y <span className="text-foreground font-medium">tecnología deportiva</span>. Estoy especialmente interesado en desarrollar sistemas que monitoreen y optimicen el rendimiento de atletas de alto nivel.
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Estos proyectos me han dado una base sólida en distintas áreas de la ingeniería. Ahora estoy buscando oportunidades donde pueda seguir aprendiendo, aportar lo que sé, y trabajar en cosas que tengan un impacto real. Estoy abierto a todo tipo de desafíos.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Wearables",
-                  description: "Dispositivos portátiles para monitoreo de salud y rendimiento",
-                },
-                {
-                  title: "IA en Deportes",
-                  description: "Análisis predictivo para prevención de lesiones",
-                },
-                {
-                  title: "Neurofeedback",
-                  description: "Sistemas de entrenamiento mental para atletas",
-                },
-              ].map((item) => (
-                <div key={item.title} className="glass-card rounded-xl p-6">
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

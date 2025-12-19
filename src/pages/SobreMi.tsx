@@ -33,13 +33,13 @@ const SobreMi = () => {
               </h1>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Soy <span className="text-foreground font-medium">Vicente Beiza Silva</span>, estudiante de Ingeniería Civil Telemática en la Universidad Técnica Federico Santa María. Desde pequeño, me ha fascinado comprender cómo funcionan las cosas y cómo la tecnología puede transformar vidas.
+                  Soy <span className="text-foreground font-medium">Vicente Beiza Silva</span>, estudiante de Ingeniería Civil Telemática en la Universidad Técnica Federico Santa María. Desde chico me gustó desarmar cosas para ver cómo funcionaban por dentro, y esa curiosidad sigue intacta.
                 </p>
                 <p>
-                  Mi camino ha sido moldeado por dos grandes pasiones: el <span className="text-foreground font-medium">fútbol</span>, donde he aprendido sobre trabajo en equipo, disciplina y superación personal, y la <span className="text-foreground font-medium">lectura</span>, que ha expandido mi comprensión del mundo y alimentado mi curiosidad intelectual.
+                  Fuera de la universidad, el <span className="text-foreground font-medium">fútbol</span> ha sido parte importante de mi vida. Me enseñó a trabajar en equipo, a levantarme después de perder y a disfrutar el proceso. También me gusta mucho <span className="text-foreground font-medium">leer</span>, de todo un poco: desde neurociencia hasta novelas.
                 </p>
                 <p>
-                  Mi visión es clara: quiero dedicar mi carrera a la <span className="text-foreground font-medium">bioingeniería y la neurociencia aplicadas al deporte de alto rendimiento</span>. Creo firmemente que la tecnología, cuando se aplica con propósito humano, puede ayudar a las personas a alcanzar su máximo potencial mientras cuidan su salud y bienestar integral.
+                  Todavía estoy descubriendo exactamente qué quiero hacer con mi carrera, pero sé que quiero trabajar en cosas que importen. Me interesa la tecnología aplicada a la salud, el deporte y el bienestar, aunque honestamente estoy abierto a explorar cualquier camino que me permita aprender y crecer.
                 </p>
               </div>
             </div>
@@ -115,9 +115,9 @@ const SobreMi = () => {
         <div className="section-container">
           <div className="max-w-3xl mx-auto text-center">
             <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-6">
-              "Mi propósito es utilizar la ingeniería y la tecnología como herramientas para el bienestar humano, especialmente en el deporte de alto rendimiento, donde la ciencia puede marcar la diferencia entre lo ordinario y lo extraordinario."
+              "No tengo todo claro todavía, pero sí sé que quiero hacer cosas que valgan la pena. Y para eso, hay que empezar por algún lado."
             </blockquote>
-            <cite className="text-muted-foreground not-italic">— Vicente Beiza Silva</cite>
+            <cite className="text-muted-foreground not-italic">— Vicente</cite>
           </div>
         </div>
       </section>
