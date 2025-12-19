@@ -30,7 +30,7 @@ const Contacto = () => {
   return (
     <Layout>
       {/* Full page contact section */}
-      <section className="min-h-screen flex flex-col justify-center relative overflow-hidden py-20">
+      <section className="h-screen flex flex-col justify-center relative overflow-hidden">
         {/* Botanical flowers */}
         <BotanicalFlowers variant="minimal" />
         
@@ -47,11 +47,11 @@ const Contacto = () => {
           morphDuration={30}
         />
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 flex-1 flex flex-col justify-center">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 flex flex-col justify-center">
           {/* Header */}
-          <div className="mb-12 md:mb-20">
+          <div className="mb-8">
             <RevealText delay={0.1}>
-              <div className="flex items-center gap-2 text-primary mb-4">
+              <div className="flex items-center gap-2 text-primary mb-3">
                 <motion.span 
                   className="w-2 h-2 rounded-full bg-primary"
                   animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
@@ -62,7 +62,7 @@ const Contacto = () => {
             </RevealText>
 
             <RevealText delay={0.2}>
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-medium text-foreground leading-tight">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-tight">
                 <GlitchText>Contacto</GlitchText>
               </h1>
             </RevealText>
@@ -85,7 +85,7 @@ const Contacto = () => {
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   whileHover={{ x: 10, backgroundColor: 'hsl(var(--primary) / 0.03)' }}
-                  className="flex items-center justify-between py-8 md:py-12 lg:py-14 border-t border-border group relative overflow-hidden rounded-lg w-full"
+                  className="flex items-center justify-between py-5 md:py-6 border-t border-border group relative overflow-hidden rounded-lg w-full"
                 >
                   {/* Animated gradient on hover */}
                   <motion.div
@@ -97,13 +97,13 @@ const Contacto = () => {
 
                   <div className="relative z-10">
                     <motion.p 
-                      className="text-xs md:text-sm text-muted-foreground uppercase tracking-widest mb-2 md:mb-3"
+                      className="text-xs text-muted-foreground uppercase tracking-widest mb-1"
                       whileHover={{ color: 'hsl(var(--primary))' }}
                     >
                       {contact.label}
                     </motion.p>
                     <motion.p 
-                      className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-foreground relative inline-block"
+                      className="font-display text-lg md:text-xl lg:text-2xl text-foreground relative inline-block"
                       whileHover={{ color: 'hsl(var(--primary))' }}
                     >
                       {contact.value}
@@ -121,7 +121,7 @@ const Contacto = () => {
                     whileHover={{ rotate: 45, scale: 1.2 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ArrowUpRight size={28} className="md:w-8 md:h-8 lg:w-10 lg:h-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   </motion.div>
                 </motion.a>
               </MagneticButton>
@@ -134,7 +134,7 @@ const Contacto = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
               whileHover={{ x: 10 }}
-              className="py-8 md:py-12 lg:py-14 border-t border-b border-border group relative overflow-hidden rounded-lg w-full"
+              className="py-5 md:py-6 border-t border-b border-border group relative overflow-hidden rounded-lg w-full"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent"
@@ -142,8 +142,8 @@ const Contacto = () => {
                 whileHover={{ x: '0%' }}
                 transition={{ duration: 0.4 }}
               />
-              <p className="text-xs md:text-sm text-muted-foreground uppercase tracking-widest mb-2 md:mb-3 relative z-10">Ubicación</p>
-              <p className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-foreground relative z-10 group-hover:text-accent transition-colors">
+              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1 relative z-10">Ubicación</p>
+              <p className="font-display text-lg md:text-xl lg:text-2xl text-foreground relative z-10 group-hover:text-accent transition-colors">
                 Santiago, Chile
               </p>
             </motion.div>
@@ -151,7 +151,7 @@ const Contacto = () => {
 
           <RevealText delay={0.5}>
             <motion.p 
-              className="text-muted-foreground text-base md:text-lg mt-12 md:mt-16"
+              className="text-muted-foreground text-sm mt-6"
               whileHover={{ color: 'hsl(var(--foreground))' }}
             >
               Respondo rápido, así que no dudes en escribirme.
