@@ -5,6 +5,7 @@ import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
 import MagneticButton from "@/components/MagneticButton";
+import BotanicalFlowers from "@/components/BotanicalFlowers";
 
 const contactLinks = [
   {
@@ -30,6 +31,9 @@ const Contacto = () => {
     <Layout>
       {/* Header */}
       <section className="py-16 md:py-24 relative overflow-hidden">
+        {/* Botanical flowers */}
+        <BotanicalFlowers variant="corner" />
+        
         <OrganicShape 
           className="-top-40 -right-40 opacity-25" 
           color="primary" 

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
+import BotanicalFlowers from "@/components/BotanicalFlowers";
 
 const experiencias = [
   {
@@ -61,6 +62,9 @@ const Experiencia = () => {
     <Layout>
       {/* Header */}
       <section className="py-16 md:py-24 relative overflow-hidden">
+        {/* Botanical flowers */}
+        <BotanicalFlowers variant="scattered" />
+        
         <OrganicShape 
           className="-top-40 -right-60 opacity-25" 
           color="primary" 
