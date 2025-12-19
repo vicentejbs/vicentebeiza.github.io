@@ -29,8 +29,8 @@ const contactLinks = [
 const Contacto = () => {
   return (
     <Layout>
-      {/* Header */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
+      {/* Full page contact section */}
+      <section className="min-h-screen flex flex-col justify-center relative overflow-hidden py-20">
         {/* Botanical flowers */}
         <BotanicalFlowers variant="minimal" />
         
@@ -47,8 +47,9 @@ const Contacto = () => {
           morphDuration={30}
         />
 
-        <div className="section-container">
-          <div className="max-w-2xl">
+        <div className="section-container flex-1 flex flex-col justify-center">
+          {/* Header */}
+          <div className="mb-16">
             <RevealText delay={0.1}>
               <div className="flex items-center gap-2 text-primary mb-4">
                 <motion.span 
@@ -61,24 +62,14 @@ const Contacto = () => {
             </RevealText>
 
             <RevealText delay={0.2}>
-              <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
+              <h1 className="font-display text-5xl md:text-7xl font-medium text-foreground leading-tight">
                 <GlitchText>Contacto</GlitchText>
               </h1>
             </RevealText>
-
-            <RevealText delay={0.3}>
-              <p className="text-muted-foreground text-lg font-light leading-relaxed">
-                Si quieres conversar sobre alguna oportunidad, proyecto o simplemente conectar, aquí me puedes encontrar.
-              </p>
-            </RevealText>
           </div>
-        </div>
-      </section>
 
-      {/* Contact Info */}
-      <section className="pb-20 relative">
-        <div className="section-container">
-          <div className="max-w-xl space-y-0">
+          {/* Contact Info - Full width */}
+          <div className="w-full space-y-0">
             {contactLinks.map((contact, index) => (
               <MagneticButton key={index} strength={0.2} className="w-full">
                 <motion.a
@@ -94,7 +85,7 @@ const Contacto = () => {
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   whileHover={{ x: 10, backgroundColor: 'hsl(var(--primary) / 0.03)' }}
-                  className="flex items-center justify-between py-6 border-t border-border group relative overflow-hidden rounded-lg"
+                  className="flex items-center justify-between py-8 md:py-10 border-t border-border group relative overflow-hidden rounded-lg w-full"
                 >
                   {/* Animated gradient on hover */}
                   <motion.div
@@ -106,13 +97,13 @@ const Contacto = () => {
 
                   <div className="relative z-10">
                     <motion.p 
-                      className="text-xs text-muted-foreground uppercase tracking-widest mb-1"
+                      className="text-xs md:text-sm text-muted-foreground uppercase tracking-widest mb-2"
                       whileHover={{ color: 'hsl(var(--primary))' }}
                     >
                       {contact.label}
                     </motion.p>
                     <motion.p 
-                      className="font-display text-lg text-foreground relative inline-block"
+                      className="font-display text-xl md:text-2xl lg:text-3xl text-foreground relative inline-block"
                       whileHover={{ color: 'hsl(var(--primary))' }}
                     >
                       {contact.value}
@@ -130,7 +121,7 @@ const Contacto = () => {
                     whileHover={{ rotate: 45, scale: 1.2 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                    <ArrowUpRight size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   </motion.div>
                 </motion.a>
               </MagneticButton>
@@ -143,7 +134,7 @@ const Contacto = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
               whileHover={{ x: 10 }}
-              className="py-6 border-t border-b border-border group relative overflow-hidden rounded-lg"
+              className="py-8 md:py-10 border-t border-b border-border group relative overflow-hidden rounded-lg w-full"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent"
@@ -151,8 +142,8 @@ const Contacto = () => {
                 whileHover={{ x: '0%' }}
                 transition={{ duration: 0.4 }}
               />
-              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1 relative z-10">Ubicación</p>
-              <p className="font-display text-lg text-foreground relative z-10 group-hover:text-accent transition-colors">
+              <p className="text-xs md:text-sm text-muted-foreground uppercase tracking-widest mb-2 relative z-10">Ubicación</p>
+              <p className="font-display text-xl md:text-2xl lg:text-3xl text-foreground relative z-10 group-hover:text-accent transition-colors">
                 Santiago, Chile
               </p>
             </motion.div>
@@ -160,29 +151,12 @@ const Contacto = () => {
 
           <RevealText delay={0.5}>
             <motion.p 
-              className="text-muted-foreground text-sm mt-12 max-w-md"
+              className="text-muted-foreground text-base mt-12"
               whileHover={{ color: 'hsl(var(--foreground))' }}
             >
               Respondo rápido, así que no dudes en escribirme.
             </motion.p>
           </RevealText>
-
-          {/* Decorative element */}
-          <motion.div
-            className="mt-20 relative"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="h-px w-full bg-gradient-to-r from-primary/50 via-accent/50 to-transparent"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-              style={{ originX: 0 }}
-            />
-          </motion.div>
         </div>
       </section>
     </Layout>
