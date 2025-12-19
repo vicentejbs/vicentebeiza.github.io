@@ -6,6 +6,7 @@ import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
 import MagneticButton from "@/components/MagneticButton";
+import BotanicalFlowers from "@/components/BotanicalFlowers";
 
 const proyectos = [
   {
@@ -64,6 +65,9 @@ const Proyectos = () => {
   return (
     <Layout>
       <section ref={containerRef} className="pt-24 pb-12 relative overflow-hidden">
+        {/* Botanical flowers */}
+        <BotanicalFlowers variant="border" />
+        
         {/* Organic background shapes */}
         <OrganicShape 
           className="-top-20 -right-40 opacity-25" 

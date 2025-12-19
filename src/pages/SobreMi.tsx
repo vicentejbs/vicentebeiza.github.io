@@ -6,6 +6,7 @@ import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
 import MagneticButton from "@/components/MagneticButton";
+import BotanicalFlowers from "@/components/BotanicalFlowers";
 
 const SobreMi = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,6 +22,9 @@ const SobreMi = () => {
     <Layout>
       {/* Hero Section */}
       <section ref={containerRef} className="py-24 relative overflow-hidden">
+        {/* Botanical flowers */}
+        <BotanicalFlowers variant="corner" />
+        
         {/* Organic shapes */}
         <OrganicShape 
           className="-top-40 -right-40 opacity-30" 
