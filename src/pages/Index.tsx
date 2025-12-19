@@ -1,4 +1,4 @@
-import { ArrowRight, Brain, Heart, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import profileImage from "@/assets/vicente-profile.jpg";
@@ -6,136 +6,106 @@ import profileImage from "@/assets/vicente-profile.jpg";
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-sand-dark/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/30 rounded-full blur-3xl" />
-        </div>
-
-        <div className="section-container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Content */}
-            <div className="space-y-8 order-2 lg:order-1">
-              <div className="space-y-4">
-                <p className="text-muted-foreground uppercase tracking-[0.2em] text-sm font-medium animate-fade-up opacity-0 stagger-1">
-                  Estudiante de Ingeniería Civil Telemática
+      {/* Hero Section - Asymmetric layout */}
+      <section className="min-h-[calc(100vh-5rem)] flex items-center">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+            {/* Content - Takes more space */}
+            <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
+              <div className="space-y-2">
+                <p className="text-taupe text-sm tracking-wide animate-fade-up opacity-0 stagger-1">
+                  Ingeniería Civil Telemática · UTFSM
                 </p>
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground leading-[1.1] animate-fade-up opacity-0 stagger-2">
-                  Vicente Beiza
-                  <span className="block text-taupe">Silva</span>
+                <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium text-foreground leading-[1.05] animate-fade-up opacity-0 stagger-2">
+                  Vicente
+                  <br />
+                  Beiza Silva
                 </h1>
               </div>
 
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg animate-fade-up opacity-0 stagger-3">
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-md animate-fade-up opacity-0 stagger-3">
                 Me encanta entender cómo funcionan las cosas y buscar formas de mejorarlas. Estudio ingeniería, juego fútbol, leo bastante, y siempre ando buscando nuevos desafíos donde pueda aprender y aportar.
               </p>
 
-              <div className="flex flex-wrap gap-4 animate-fade-up opacity-0 stagger-4">
+              <div className="flex items-center gap-6 pt-2 animate-fade-up opacity-0 stagger-4">
                 <Link
                   to="/sobre-mi"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-center gap-2 text-foreground font-medium border-b-2 border-foreground pb-1 hover:gap-3 transition-all duration-300"
                 >
                   Conoce mi historia
-                  <ArrowRight size={16} />
+                  <ArrowRight size={18} />
                 </Link>
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground rounded-lg font-medium text-sm hover:bg-card transition-all duration-300"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Contáctame
+                  Contacto
                 </Link>
               </div>
             </div>
 
-            {/* Profile Image */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in opacity-0 stagger-2">
+            {/* Profile Image - Smaller, offset */}
+            <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in opacity-0 stagger-2">
               <div className="relative">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-sand-dark/30 shadow-elevated">
+                <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden">
                   <img
                     src={profileImage}
                     alt="Vicente Beiza Silva"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full -z-10" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 border-2 border-sand-dark/50 rounded-full" />
+                {/* Subtle line accent */}
+                <div className="absolute -bottom-3 -left-3 w-full h-full border border-taupe/30 rounded-2xl -z-10" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 md:py-28 bg-card/50">
+      {/* Simple values - horizontal, minimal */}
+      <section className="py-20 border-t border-border">
         <div className="section-container">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              Mi Enfoque
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Combinando ingeniería, innovación y pasión por el bienestar humano
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Brain,
-                title: "Curiosidad",
-                description:
-                  "Siempre preguntándome el porqué de las cosas. Me gusta investigar, probar ideas nuevas y aprender de cada proyecto.",
-              },
-              {
-                icon: Heart,
-                title: "Personas",
-                description:
-                  "Al final del día, lo que más me motiva es trabajar en cosas que tengan un impacto real en la vida de las personas.",
-              },
-              {
-                icon: Zap,
-                title: "Acción",
-                description:
-                  "Prefiero hacer que solo planear. Me gusta involucrarme, probar cosas y aprender sobre la marcha.",
-              },
-            ].map((item, index) => (
-              <div
-                key={item.title}
-                className="glass-card rounded-2xl p-8 text-center hover:shadow-elevated transition-all duration-300 group"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-14 h-14 mx-auto mb-6 bg-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <item.icon size={28} className="text-foreground" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            <div className="space-y-3">
+              <span className="text-xs text-taupe uppercase tracking-widest">01</span>
+              <h3 className="font-display text-2xl text-foreground">Curiosidad</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Siempre preguntándome el porqué de las cosas. Me gusta investigar, probar ideas nuevas y aprender de cada proyecto.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <span className="text-xs text-taupe uppercase tracking-widest">02</span>
+              <h3 className="font-display text-2xl text-foreground">Personas</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Al final del día, lo que más me motiva es trabajar en cosas que tengan un impacto real en la vida de las personas.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <span className="text-xs text-taupe uppercase tracking-widest">03</span>
+              <h3 className="font-display text-2xl text-foreground">Acción</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Prefiero hacer que solo planear. Me gusta involucrarme, probar cosas y aprender sobre la marcha.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-28">
+      {/* CTA Section - Clean and simple */}
+      <section className="py-24">
         <div className="section-container">
-          <div className="glass-card rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto">
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              ¿Listo para colaborar?
+          <div className="max-w-2xl">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
+              ¿Conversamos?
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Si tienes alguna oportunidad, proyecto o idea en mente, me encantaría conversarlo. Estoy abierto a todo tipo de colaboraciones.
+            <p className="text-muted-foreground mb-6">
+              Si tienes alguna oportunidad, proyecto o idea en mente, me encantaría escucharte. Estoy abierto a todo tipo de colaboraciones.
             </p>
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300"
+              className="inline-flex items-center gap-2 text-foreground font-medium border-b-2 border-foreground pb-1 hover:gap-3 transition-all duration-300"
             >
-              Iniciar conversación
+              Escríbeme
               <ArrowRight size={18} />
             </Link>
           </div>
