@@ -13,9 +13,12 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import CustomCursor from "@/components/CustomCursor";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CustomCursor />
       <Toaster />
       <Sonner />
       <HashRouter>

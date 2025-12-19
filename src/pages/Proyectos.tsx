@@ -1,118 +1,117 @@
 import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
+import { motion } from "framer-motion";
 
 const proyectos = [
   {
     titulo: "Software y Simulaciones",
     categoria: "Desarrollo",
     descripcion:
-      "Desarrollo de software y simulaciones de circuitos usando múltiples lenguajes para resolver problemas de ingeniería.",
+      "Desarrollo de software y simulaciones de circuitos usando múltiples lenguajes para resolver problemas de ingeniería complejos.",
     tecnologias: ["C", "C++", "Python", "MATLAB"],
+    color: "from-blue-500/20 to-cyan-500/20"
   },
   {
     titulo: "Sistemas Embebidos",
     categoria: "Hardware",
     descripcion:
-      "Trabajo con placas de desarrollo para proyectos de sistemas embebidos y procesamiento de señales digitales.",
+      "Diseño y programación de sistemas embebidos y procesamiento de señales digitales en tiempo real.",
     tecnologias: ["Arduino", "Nexys A7 (FPGA)", "C++"],
+    color: "from-emerald-500/20 to-lime-500/20"
   },
   {
     titulo: "Telecomunicaciones",
     categoria: "Comunicaciones",
     descripcion:
-      "Aplicaciones de telecomunicaciones usando software especializado para radio definido por software.",
+      "Implementación de sistemas de radio definido por software (SDR) y protocolos de comunicación avanzados.",
     tecnologias: ["GNU Radio", "Linux", "Python"],
+    color: "from-purple-500/20 to-pink-500/20"
   },
   {
     titulo: "Redes y Sistemas",
     categoria: "Infraestructura",
     descripcion:
-      "Configuración y administración de dispositivos de red, protocolos y técnicas de troubleshooting.",
+      "Configuración robusta y administración de topologías de red, seguridad y troubleshooting avanzado.",
     tecnologias: ["Cisco IOS", "Cisco Packet Tracer", "Linux"],
+    color: "from-orange-500/20 to-red-500/20"
   },
 ];
 
 const Proyectos = () => {
   return (
     <Layout>
-      {/* Header */}
-      <section className="py-16 md:py-24">
+      <section className="pt-24 pb-12">
         <div className="section-container">
-          <div className="max-w-2xl animate-fade-up opacity-0">
-            <p className="text-taupe text-sm tracking-wide mb-3">Portfolio</p>
-            <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-tight mb-4">
-              Proyectos
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-16 max-w-2xl"
+          >
+            <div className="flex items-center gap-2 text-primary mb-4">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <p className="text-sm tracking-[0.2em] uppercase font-medium">Portafolio</p>
+            </div>
+            <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
+              Laboratorio de <br />
+              <span className="text-zinc-600">Ideas.</span>
             </h1>
-            <p className="text-muted-foreground leading-relaxed">
-              Proyectos académicos y personales que reflejan lo que he aprendido en distintas áreas de la ingeniería.
+            <p className="text-muted-foreground text-lg font-light leading-relaxed">
+              Explorando la ingeniería a través de la práctica. Cada proyecto es un experimento para entender mejor el mundo digital y físico.
             </p>
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* Projects List */}
-      <section className="pb-16">
-        <div className="section-container">
-          <div className="space-y-0">
+          <div className="grid grid-cols-1 gap-6">
             {proyectos.map((proyecto, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="py-10 border-t border-border animate-fade-up opacity-0 group cursor-pointer hover:bg-card/30 -mx-6 px-6 transition-colors duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
               >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                  <div className="md:col-span-4 flex items-start justify-between">
-                    <div>
-                      <span className="text-xs text-taupe uppercase tracking-widest">
-                        {proyecto.categoria}
-                      </span>
-                      <h3 className="font-display text-2xl text-foreground mt-1 group-hover:underline underline-offset-4">
-                        {proyecto.titulo}
-                      </h3>
-                    </div>
-                    <ArrowUpRight 
-                      size={20} 
-                      className="text-taupe group-hover:text-foreground transition-colors mt-1 md:hidden" 
-                    />
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${proyecto.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl`} />
+
+                <div className="relative p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
+                  {/* Category & Title */}
+                  <div className="md:col-span-5 space-y-2">
+                    <span className="text-xs font-mono text-primary/80 uppercase tracking-widest border border-primary/20 px-2 py-1 rounded">
+                      {proyecto.categoria}
+                    </span>
+                    <h3 className="font-display text-3xl md:text-4xl text-foreground mt-2 group-hover:translate-x-2 transition-transform duration-300">
+                      {proyecto.titulo}
+                    </h3>
                   </div>
-                  <div className="md:col-span-6">
-                    <p className="text-muted-foreground leading-relaxed">
+
+                  {/* Description */}
+                  <div className="md:col-span-4">
+                    <p className="text-zinc-400 font-light leading-relaxed group-hover:text-zinc-300 transition-colors">
                       {proyecto.descripcion}
                     </p>
                   </div>
-                  <div className="md:col-span-2 flex items-start justify-end">
-                    <ArrowUpRight 
-                      size={20} 
-                      className="text-taupe group-hover:text-foreground transition-colors hidden md:block" 
-                    />
+
+                  {/* Tech Stack & Arrow */}
+                  <div className="md:col-span-3 flex flex-col items-end gap-6 justify-between h-full">
+                    <div className="p-3 rounded-full border border-white/10 group-hover:bg-white text-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45">
+                      <ArrowUpRight size={24} />
+                    </div>
+                  </div>
+
+                  {/* Tags positioned absolutely or in flow depending on mobile */}
+                  <div className="col-span-12 md:col-span-12 flex flex-wrap gap-2 mt-4 md:mt-0">
+                    {proyecto.tecnologias.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs text-zinc-500 bg-black/40 border border-white/5 rounded-full px-3 py-1 backdrop-blur-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {proyecto.tecnologias.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs text-taupe border border-border rounded-full px-3 py-1"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Future Vision */}
-      <section className="py-20 border-t border-border">
-        <div className="section-container">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-2xl text-foreground mb-4">
-              ¿Qué sigue?
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Estos proyectos me han dado una base sólida en distintas áreas de la ingeniería. Ahora estoy buscando oportunidades donde pueda seguir aprendiendo, aportar lo que sé, y trabajar en cosas que tengan un impacto real. Estoy abierto a todo tipo de desafíos.
-            </p>
           </div>
         </div>
       </section>
