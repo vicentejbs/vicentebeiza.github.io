@@ -83,7 +83,7 @@ const Index = () => {
             <RevealText delay={0.2}>
               <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-foreground leading-[0.9] tracking-tight mb-8">
                 <GlitchText>Vicente</GlitchText> <br />
-                <span className="text-zinc-600">
+                <span className="text-muted-foreground">
                   <GlitchText>Beiza.</GlitchText>
                 </span>
               </h1>
@@ -121,7 +121,7 @@ const Index = () => {
                     className="group flex items-center gap-4 text-foreground text-lg font-medium"
                   >
                     <motion.div 
-                      className="w-14 h-14 rounded-full border border-zinc-800 flex items-center justify-center relative overflow-hidden"
+                      className="w-14 h-14 rounded-full border border-border flex items-center justify-center relative overflow-hidden"
                       whileHover={{ 
                         borderColor: 'hsl(var(--primary))',
                         backgroundColor: 'hsl(var(--primary) / 0.1)',
@@ -155,7 +155,7 @@ const Index = () => {
                 <MagneticButton strength={0.3}>
                   <Link
                     to="/sobre-mi"
-                    className="group flex items-center gap-2 text-zinc-500 hover:text-foreground transition-colors"
+                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <motion.span
                       whileHover={{ x: -3 }}
@@ -184,7 +184,7 @@ const Index = () => {
           transition={{ delay: 1.5, duration: 0.8 }}
         >
           <motion.div
-            className="w-6 h-10 rounded-full border-2 border-zinc-700 flex justify-center p-2"
+            className="w-6 h-10 rounded-full border-2 border-border flex justify-center p-2"
             animate={{ 
               borderColor: ['hsl(var(--border))', 'hsl(var(--primary) / 0.5)', 'hsl(var(--border))']
             }}
@@ -200,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* Philosophy Section - Minimal Grid */}
-      <section className="py-32 border-t border-zinc-900 relative overflow-hidden">
+      <section className="py-32 border-t border-border relative overflow-hidden">
         {/* Background animation */}
         <motion.div
           className="absolute inset-0 pointer-events-none"
@@ -240,7 +240,7 @@ const Index = () => {
                 <h3 className="font-display text-3xl text-foreground group-hover:text-primary transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-zinc-500 leading-relaxed font-light group-hover:text-zinc-400 transition-colors duration-300">
+                <p className="text-muted-foreground leading-relaxed font-light group-hover:text-foreground/70 transition-colors duration-300">
                   {item.desc}
                 </p>
                 <motion.div 

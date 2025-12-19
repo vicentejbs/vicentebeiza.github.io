@@ -143,7 +143,7 @@ const Experiencia = () => {
                       </h3>
                       <p className="text-muted-foreground text-sm">{exp.empresa}</p>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xl group-hover:text-zinc-400 transition-colors">
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xl group-hover:text-foreground/70 transition-colors">
                       {exp.descripcion}
                     </p>
                     <div className="flex flex-wrap gap-2 pt-1">
@@ -267,7 +267,7 @@ const Experiencia = () => {
                 <h3 className="font-display text-lg text-foreground mb-3 group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
-                <p className="text-muted-foreground text-sm group-hover:text-zinc-400 transition-colors">
+                <p className="text-muted-foreground text-sm group-hover:text-foreground/70 transition-colors">
                   {category.skills}
                 </p>
                 <motion.div 

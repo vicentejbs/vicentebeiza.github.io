@@ -70,7 +70,7 @@ const SobreMi = () => {
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   />
                   
-                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border shadow-2xl">
                     <motion.div 
                       className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent z-10"
                       initial={{ opacity: 0 }}
@@ -90,8 +90,8 @@ const SobreMi = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 }}
                     >
-                      <p className="text-white/60 text-sm font-mono tracking-wider">ID: 21253558-3</p>
-                      <p className="text-white text-lg font-medium">UTFSM · Chile</p>
+                      <p className="text-foreground/60 text-sm font-mono tracking-wider">ID: 21253558-3</p>
+                      <p className="text-foreground text-lg font-medium">UTFSM · Chile</p>
                     </motion.div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ const SobreMi = () => {
               <RevealText delay={0.2}>
                 <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
                   <GlitchText>Ingeniería</GlitchText> con <br />
-                  <span className="text-zinc-600">
+                  <span className="text-muted-foreground">
                     <GlitchText>propósito humano.</GlitchText>
                   </span>
                 </h1>
@@ -139,7 +139,7 @@ const SobreMi = () => {
 
               <RevealText delay={0.4}>
                 <motion.div 
-                  className="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm relative overflow-hidden"
+                  className="p-6 bg-secondary/50 border border-border rounded-xl backdrop-blur-sm relative overflow-hidden"
                   whileHover={{ borderColor: 'hsl(var(--primary) / 0.3)' }}
                 >
                   <motion.div
@@ -159,7 +159,7 @@ const SobreMi = () => {
       </section>
 
       {/* Pillars Section */}
-      <section className="py-24 border-t border-white/5 relative overflow-hidden">
+      <section className="py-24 border-t border-border relative overflow-hidden">
         <motion.div
           className="absolute inset-0 pointer-events-none"
           initial={{ opacity: 0 }}
@@ -217,7 +217,7 @@ const SobreMi = () => {
                     {item.title}
                   </h3>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed pl-[3.25rem] border-l border-white/10 group-hover:border-primary/30 transition-colors">
+                <p className="text-muted-foreground text-sm leading-relaxed pl-[3.25rem] border-l border-border group-hover:border-primary/30 transition-colors">
                   {item.desc}
                 </p>
                 <motion.div 

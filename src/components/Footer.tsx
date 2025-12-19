@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border">
-          <p className="text-xs text-taupe">
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()}
           </p>
         </div>
