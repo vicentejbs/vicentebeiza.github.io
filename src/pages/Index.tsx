@@ -7,7 +7,6 @@ import MagneticButton from "@/components/MagneticButton";
 import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
-import robotDoctorImage from "@/assets/robot-doctor.png";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,10 +18,6 @@ const Index = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  
-  // Parallax for robot image
-  const robotY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const robotScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
   return (
     <Layout>
@@ -67,67 +62,6 @@ const Index = () => {
           />
         </div>
 
-        {/* Robot Doctor Image - Full Background */}
-        <motion.div
-          className="absolute inset-0 w-full h-full pointer-events-none z-5"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          style={{ y: robotY }}
-        >
-          {/* Enhanced gradient overlays for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/60 z-10" />
-          
-          {/* Subtle glow effect behind the robot */}
-          <motion.div
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[70%] h-[100%] bg-gradient-radial from-primary/20 via-accent/10 to-transparent blur-3xl"
-            animate={{
-              opacity: [0.3, 0.5, 0.3],
-              scale: [0.95, 1.05, 0.95],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          
-          <motion.img
-            src={robotDoctorImage}
-            alt="Robot médico rodeado de flores - Fusión de tecnología y salud"
-            className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-auto h-[115%] max-w-none object-cover object-left opacity-70"
-            style={{ scale: robotScale }}
-            animate={{
-              y: ['-50%', 'calc(-50% - 15px)', '-50%'],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          
-          {/* Floating particles around the robot */}
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1.5 h-1.5 rounded-full bg-primary/50 z-20"
-              style={{
-                right: `${15 + i * 10}%`,
-                top: `${25 + (i % 3) * 20}%`,
-              }}
-              animate={{
-                y: [0, -25, 0],
-                opacity: [0.2, 0.6, 0.2],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 4 + i * 0.5,
-                repeat: Infinity,
-                delay: i * 0.3,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
-        </motion.div>
 
         <motion.div 
           className="section-container relative z-10"

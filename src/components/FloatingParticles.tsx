@@ -32,7 +32,7 @@ const FloatingParticles = () => {
   const smoothMouseX = useSpring(mouseX, springConfig);
   const smoothMouseY = useSpring(mouseY, springConfig);
 
-  const particles = useRef(generateParticles(20)).current;
+  const particles = useRef(generateParticles(8)).current; // Reduced from 20 to 8 for performance
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -54,106 +54,53 @@ const FloatingParticles = () => {
       ref={containerRef}
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
     >
-      {/* Organic gradient blobs */}
+      {/* Organic gradient blobs - optimized with will-change */}
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-30"
+        className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 will-change-transform"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--primary) / 0.3), transparent 70%)',
+          background: 'radial-gradient(circle, hsl(var(--primary) / 0.25), transparent 70%)',
           left: '10%',
           top: '20%',
-          x: useTransform(smoothMouseX, (v) => v * -2),
-          y: useTransform(smoothMouseY, (v) => v * -2),
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.35, 0.2],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
+          x: useTransform(smoothMouseX, (v) => v * -1.5),
+          y: useTransform(smoothMouseY, (v) => v * -1.5),
         }}
       />
 
       <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-25"
+        className="absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-15 will-change-transform"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--accent) / 0.25), transparent 70%)',
+          background: 'radial-gradient(circle, hsl(var(--accent) / 0.2), transparent 70%)',
           right: '5%',
           bottom: '10%',
-          x: useTransform(smoothMouseX, (v) => v * 1.5),
-          y: useTransform(smoothMouseY, (v) => v * 1.5),
-        }}
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 2,
+          x: useTransform(smoothMouseX, (v) => v * 1),
+          y: useTransform(smoothMouseY, (v) => v * 1),
         }}
       />
 
-      {/* Floating particles */}
+      {/* Simplified floating particles */}
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute"
+          className="absolute rounded-full bg-primary/30 will-change-transform"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
-            x: useTransform(smoothMouseX, (v) => v * (particle.id % 2 === 0 ? 1 : -1) * 0.5),
-            y: useTransform(smoothMouseY, (v) => v * (particle.id % 2 === 0 ? 1 : -1) * 0.5),
+            width: particle.size,
+            height: particle.size,
           }}
-          initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.6, 0],
-            y: [0, -100, -200],
-            x: [0, (particle.id % 2 === 0 ? 20 : -20), 0],
+            opacity: [0, 0.5, 0],
+            y: [0, -80],
           }}
           transition={{
             duration: particle.duration,
             repeat: Infinity,
             delay: particle.delay,
-            ease: 'easeInOut',
+            ease: 'linear',
           }}
-        >
-          {particle.type === 'circle' && (
-            <div
-              className="rounded-full bg-primary/40"
-              style={{ width: particle.size, height: particle.size }}
-            />
-          )}
-          {particle.type === 'ring' && (
-            <div
-              className="rounded-full border border-accent/30"
-              style={{ width: particle.size * 2, height: particle.size * 2 }}
-            />
-          )}
-          {particle.type === 'dot' && (
-            <div
-              className="rounded-full bg-foreground/20"
-              style={{ width: particle.size / 2, height: particle.size / 2 }}
-            />
-          )}
-        </motion.div>
+        />
       ))}
 
-      {/* Neural connection lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-10">
-        <motion.path
-          d="M0,50 Q25,30 50,50 T100,50"
-          stroke="hsl(var(--primary))"
-          strokeWidth="0.5"
-          fill="none"
-          className="transform scale-x-[3]"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: [0, 1, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </svg>
     </div>
   );
 };
