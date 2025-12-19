@@ -23,7 +23,7 @@ const SobreMi = () => {
       {/* Hero Section */}
       <section ref={containerRef} className="py-24 relative overflow-hidden">
         {/* Botanical flowers */}
-        <BotanicalFlowers variant="corner" />
+        <BotanicalFlowers variant="elegant" />
         
         {/* Organic shapes */}
         <OrganicShape 

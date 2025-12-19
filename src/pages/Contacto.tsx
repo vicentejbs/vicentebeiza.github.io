@@ -32,7 +32,7 @@ const Contacto = () => {
       {/* Header */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Botanical flowers */}
-        <BotanicalFlowers variant="corner" />
+        <BotanicalFlowers variant="minimal" />
         
         <OrganicShape 
           className="-top-40 -right-40 opacity-25" 

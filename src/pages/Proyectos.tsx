@@ -66,7 +66,7 @@ const Proyectos = () => {
     <Layout>
       <section ref={containerRef} className="pt-24 pb-12 relative overflow-hidden">
         {/* Botanical flowers */}
-        <BotanicalFlowers variant="border" />
+        <BotanicalFlowers variant="minimal" />
         
         {/* Organic background shapes */}
         <OrganicShape 
