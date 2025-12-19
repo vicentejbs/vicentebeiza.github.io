@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSound } from "@/contexts/SoundContext";
 
 const navItems = [
   { name: "Inicio", path: "/" },
@@ -17,6 +18,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { playHover, playClick, playTransition, playToggle, enabled, setEnabled } = useSound();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +27,24 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Play transition sound on route change
+  useEffect(() => {
+    playTransition();
+  }, [location.pathname, playTransition]);
+
+  const handleNavClick = () => {
+    playClick();
+  };
+
+  const handleNavHover = () => {
+    playHover();
+  };
+
+  const toggleSound = () => {
+    playToggle(!enabled);
+    setEnabled(!enabled);
+  };
 
   return (
     <nav
@@ -38,6 +58,8 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             to="/"
+            onClick={handleNavClick}
+            onMouseEnter={handleNavHover}
             className="font-display text-xl font-bold text-foreground tracking-tight hover:opacity-80 transition-opacity"
           >
             VB<span className="text-primary">.</span>
@@ -51,6 +73,8 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={handleNavClick}
+                  onMouseEnter={handleNavHover}
                   className={cn(
                     "px-4 py-2 text-sm rounded-full transition-all relative group",
                     isActive ? "text-foreground font-medium" : "text-zinc-400 hover:text-foreground"
@@ -68,11 +92,24 @@ const Navigation = () => {
                 </Link>
               );
             })}
+
+            {/* Sound Toggle */}
+            <button
+              onClick={toggleSound}
+              onMouseEnter={handleNavHover}
+              className="ml-2 p-2 text-zinc-400 hover:text-foreground transition-colors rounded-full hover:bg-white/5"
+              aria-label={enabled ? "Mute sounds" : "Enable sounds"}
+            >
+              {enabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              playClick();
+            }}
             className="md:hidden p-2 -mr-2 text-foreground hover:bg-white/5 rounded-full transition-colors"
             aria-label="Toggle menu"
           >
@@ -95,7 +132,11 @@ const Navigation = () => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleNavClick();
+                    }}
+                    onMouseEnter={handleNavHover}
                     className={cn(
                       "text-base py-3 px-4 rounded-lg transition-colors",
                       location.pathname === item.path
@@ -106,6 +147,15 @@ const Navigation = () => {
                     {item.name}
                   </Link>
                 ))}
+
+                {/* Mobile Sound Toggle */}
+                <button
+                  onClick={toggleSound}
+                  className="flex items-center gap-3 text-base py-3 px-4 rounded-lg text-zinc-400 hover:text-foreground hover:bg-white/5 transition-colors"
+                >
+                  {enabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+                  <span>{enabled ? "Sonido activado" : "Sonido desactivado"}</span>
+                </button>
               </div>
             </motion.div>
           )}

@@ -14,6 +14,7 @@ import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "@/components/CustomCursor";
 import Loader from "@/components/Loader";
+import { SoundProvider } from "@/contexts/SoundContext";
 
 const queryClient = new QueryClient();
 
@@ -104,26 +105,28 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* Loader */}
-        <Loader onComplete={() => setIsLoaded(true)} />
-        
-        {/* Main content with entrance animation */}
-        <AnimatePresence>
-          {isLoaded && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <CustomCursor />
-              <Toaster />
-              <Sonner />
-              <HashRouter>
-                <AnimatedRoutes />
-              </HashRouter>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <SoundProvider>
+          {/* Loader */}
+          <Loader onComplete={() => setIsLoaded(true)} />
+          
+          {/* Main content with entrance animation */}
+          <AnimatePresence>
+            {isLoaded && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <CustomCursor />
+                <Toaster />
+                <Sonner />
+                <HashRouter>
+                  <AnimatedRoutes />
+                </HashRouter>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </SoundProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
