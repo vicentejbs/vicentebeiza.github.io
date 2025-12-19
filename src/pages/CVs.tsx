@@ -60,7 +60,7 @@ const CVs = () => {
             <RevealText delay={0.2}>
               <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
                 <GlitchText>Currículum</GlitchText> <br />
-                <span className="text-zinc-600">
+                <span className="text-muted-foreground">
                   <GlitchText>Vitae.</GlitchText>
                 </span>
               </h1>
@@ -93,7 +93,7 @@ const CVs = () => {
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   whileHover={{ scale: 1.02, y: -5 }}
-                  className="flex items-center justify-between p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-primary/20 transition-all duration-300 group relative overflow-hidden"
+                  className="flex items-center justify-between p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/20 transition-all duration-300 group relative overflow-hidden"
                 >
                   {/* Animated background gradient */}
                   <motion.div
@@ -131,20 +131,20 @@ const CVs = () => {
                           {cv.titulo}
                         </h3>
                         <motion.span 
-                          className="text-[10px] font-mono border border-white/10 px-2 py-0.5 rounded text-zinc-500"
+                          className="text-[10px] font-mono border border-border px-2 py-0.5 rounded text-muted-foreground"
                           whileHover={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}
                         >
                           {cv.type}
                         </motion.span>
                       </div>
-                      <p className="text-muted-foreground text-sm mt-2 font-light max-w-sm group-hover:text-zinc-400 transition-colors">
+                      <p className="text-muted-foreground text-sm mt-2 font-light max-w-sm group-hover:text-foreground/80 transition-colors">
                         {cv.descripcion}
                       </p>
                     </div>
                   </div>
 
                   <motion.div 
-                    className="hidden md:flex items-center gap-2 text-zinc-500 group-hover:text-foreground transition-colors pr-4 relative z-10"
+                    className="hidden md:flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors pr-4 relative z-10"
                     initial={{ x: 0 }}
                     whileHover={{ x: 5 }}
                   >
@@ -174,7 +174,7 @@ const CVs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-20 max-w-3xl border-t border-white/5 pt-12 relative"
+            className="mt-20 max-w-3xl border-t border-border pt-12 relative"
           >
             <motion.div
               className="absolute inset-0 pointer-events-none"
@@ -200,15 +200,15 @@ const CVs = () => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <p className="text-xs text-zinc-500 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">{item.label}</p>
                   {item.value && <p className="text-foreground font-medium">{item.value}</p>}
-                  {item.sub && <p className="text-sm text-zinc-500">{item.sub}</p>}
+                  {item.sub && <p className="text-sm text-muted-foreground">{item.sub}</p>}
                   {item.values && (
                     <div className="flex gap-4">
                       {item.values.map((v, i) => (
                         <div key={i}>
                           <p className="text-foreground font-medium">{v.lang}</p>
-                          <p className="text-sm text-zinc-500">{v.level}</p>
+                          <p className="text-sm text-muted-foreground">{v.level}</p>
                         </div>
                       ))}
                     </div>
