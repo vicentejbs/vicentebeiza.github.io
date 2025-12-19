@@ -47,7 +47,7 @@ const Contacto = () => {
           morphDuration={30}
         />
 
-        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 flex flex-col justify-center">
+        <div className="section-container flex flex-col justify-center">
           {/* Header */}
           <div className="mb-8">
             <RevealText delay={0.1}>
