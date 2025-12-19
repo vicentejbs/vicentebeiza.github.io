@@ -191,12 +191,172 @@ const SimpleBlossom = ({ className = '', delay = 0, scale = 1 }: FlowerProps) =>
   </motion.svg>
 );
 
+// Elegant vine with leaves
+const ElegantVine = ({ className = '', delay = 0, scale = 1 }: FlowerProps) => (
+  <motion.svg
+    viewBox="0 0 120 200"
+    className={`${className}`}
+    style={{ width: 80 * scale, height: 140 * scale }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1, delay }}
+  >
+    {/* Main vine curve */}
+    <motion.path
+      d="M60 190 Q40 150 60 120 Q80 90 60 60 Q40 30 60 10"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 2, delay, ease: "easeInOut" }}
+    />
+    {/* Leaves along the vine */}
+    <motion.path
+      d="M60 150 Q45 145 40 135 Q50 140 60 150"
+      stroke="currentColor"
+      strokeWidth="0.8"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.8, delay: delay + 0.5 }}
+    />
+    <motion.path
+      d="M60 110 Q75 105 80 95 Q70 100 60 110"
+      stroke="currentColor"
+      strokeWidth="0.8"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.8, delay: delay + 0.7 }}
+    />
+    <motion.path
+      d="M60 70 Q45 65 38 55 Q50 60 60 70"
+      stroke="currentColor"
+      strokeWidth="0.8"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.8, delay: delay + 0.9 }}
+    />
+    {/* Small flower at top */}
+    <motion.circle
+      cx="60"
+      cy="12"
+      r="6"
+      stroke="currentColor"
+      strokeWidth="0.8"
+      fill="none"
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.5, delay: delay + 1.2 }}
+    />
+  </motion.svg>
+);
+
+// Delicate branch
+const DelicateBranch = ({ className = '', delay = 0, scale = 1 }: FlowerProps) => (
+  <motion.svg
+    viewBox="0 0 150 80"
+    className={`${className}`}
+    style={{ width: 120 * scale, height: 60 * scale }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1, delay }}
+  >
+    {/* Main branch */}
+    <motion.path
+      d="M10 40 Q50 35 90 40 Q130 45 145 40"
+      stroke="currentColor"
+      strokeWidth="1"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 1.5, delay }}
+    />
+    {/* Small leaves/buds */}
+    <motion.path
+      d="M40 38 Q35 30 40 22 Q45 30 40 38"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.6, delay: delay + 0.4 }}
+    />
+    <motion.path
+      d="M70 42 Q75 50 70 58 Q65 50 70 42"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.6, delay: delay + 0.6 }}
+    />
+    <motion.path
+      d="M100 40 Q95 32 100 24 Q105 32 100 40"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.6, delay: delay + 0.8 }}
+    />
+    <motion.path
+      d="M120 42 Q125 50 120 58 Q115 50 120 42"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      fill="none"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 0.6, delay: delay + 1 }}
+    />
+  </motion.svg>
+);
+
 interface BotanicalFlowersProps {
-  variant?: 'corner' | 'scattered' | 'border';
+  variant?: 'corner' | 'scattered' | 'border' | 'elegant' | 'minimal';
   className?: string;
 }
 
 const BotanicalFlowers = ({ variant = 'corner', className = '' }: BotanicalFlowersProps) => {
+  if (variant === 'elegant') {
+    return (
+      <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/50 ${className}`}>
+        {/* Top right elegant vine */}
+        <div className="absolute -top-10 right-[10%] rotate-12">
+          <ElegantVine delay={0.2} scale={1.3} />
+        </div>
+        {/* Bottom left branch */}
+        <div className="absolute bottom-[15%] -left-10 -rotate-12">
+          <DelicateBranch delay={0.4} scale={1.2} />
+        </div>
+        {/* Small accent flowers */}
+        <div className="absolute top-[40%] right-[5%] rotate-45">
+          <SimpleBlossom delay={0.6} scale={0.7} />
+        </div>
+        <div className="absolute bottom-[30%] left-[8%] -rotate-15">
+          <SimpleBlossom delay={0.8} scale={0.6} />
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === 'minimal') {
+    return (
+      <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/40 ${className}`}>
+        {/* Single elegant branch at top */}
+        <div className="absolute top-[5%] right-[5%]">
+          <DelicateBranch delay={0.3} scale={1} />
+        </div>
+        {/* Single vine at bottom */}
+        <div className="absolute bottom-0 left-[5%] rotate-180">
+          <ElegantVine delay={0.5} scale={0.9} />
+        </div>
+      </div>
+    );
+  }
+
   if (variant === 'corner') {
     return (
       <div className={`absolute pointer-events-none text-primary/50 ${className}`}>

@@ -63,7 +63,7 @@ const Experiencia = () => {
       {/* Header */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Botanical flowers */}
-        <BotanicalFlowers variant="scattered" />
+        <BotanicalFlowers variant="elegant" />
         
         <OrganicShape 
           className="-top-40 -right-60 opacity-25" 

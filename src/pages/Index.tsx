@@ -25,7 +25,7 @@ const Index = () => {
       {/* Hero Section - Bio-Tech Experimental */}
       <section ref={containerRef} className="min-h-screen flex items-center relative overflow-hidden">
         {/* Botanical flowers decoration */}
-        <BotanicalFlowers variant="scattered" />
+        <BotanicalFlowers variant="elegant" />
         
         {/* Organic morphing shapes */}
         <OrganicShape 
