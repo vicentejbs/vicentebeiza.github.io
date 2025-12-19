@@ -7,6 +7,7 @@ import MagneticButton from "@/components/MagneticButton";
 import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
+import BotanicalFlowers from "@/components/BotanicalFlowers";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,9 @@ const Index = () => {
     <Layout>
       {/* Hero Section - Bio-Tech Experimental */}
       <section ref={containerRef} className="min-h-screen flex items-center relative overflow-hidden">
+        {/* Botanical flowers decoration */}
+        <BotanicalFlowers variant="scattered" />
+        
         {/* Organic morphing shapes */}
         <OrganicShape 
           className="-top-20 -right-20 opacity-40" 
