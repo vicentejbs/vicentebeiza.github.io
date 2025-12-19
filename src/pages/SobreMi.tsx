@@ -29,7 +29,7 @@ const SobreMi = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="absolute bottom-6 left-6 z-20">
-                    <p className="text-white/60 text-sm font-mono tracking-wider">ID: 202173003-8</p>
+                    <p className="text-white/60 text-sm font-mono tracking-wider">ID: 21253558-3</p>
                     <p className="text-white text-lg font-medium">UTFSM · Chile</p>
                   </div>
                 </div>
