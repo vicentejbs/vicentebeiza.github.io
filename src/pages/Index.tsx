@@ -100,7 +100,7 @@ const Index = () => {
               ¿Conversamos?
             </h2>
             <p className="text-muted-foreground mb-6">
-              Estoy abierto a todo: trabajo, prácticas, proyectos, lo que sea. Si además tiene que ver con salud o bienestar, mejor aún, pero no me cierro a nada.
+              Estoy abierto a trabajos, prácticas, proyectos. Si además se relaciona con el ámbito de la salud o el bienestar, resulta especialmente atractivo, aunque mantengo una disposición abierta a otras áreas.
             </p>
             <Link
               to="/contacto"
