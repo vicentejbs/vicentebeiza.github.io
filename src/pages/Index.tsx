@@ -75,15 +75,16 @@ const Index = () => {
           transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           style={{ y: robotY }}
         >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10" />
+          {/* Enhanced gradient overlays for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/60 z-10" />
           
-          {/* Glow effect behind the robot */}
+          {/* Subtle glow effect behind the robot */}
           <motion.div
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[80%] h-[120%] bg-gradient-radial from-primary/30 via-accent/15 to-transparent blur-3xl"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[70%] h-[100%] bg-gradient-radial from-primary/20 via-accent/10 to-transparent blur-3xl"
             animate={{
-              opacity: [0.4, 0.7, 0.4],
+              opacity: [0.3, 0.5, 0.3],
               scale: [0.95, 1.05, 0.95],
             }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
@@ -92,10 +93,10 @@ const Index = () => {
           <motion.img
             src={robotDoctorImage}
             alt="Robot médico rodeado de flores - Fusión de tecnología y salud"
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-auto h-[110%] max-w-none object-cover object-left opacity-90"
+            className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-auto h-[115%] max-w-none object-cover object-left opacity-70"
             style={{ scale: robotScale }}
             animate={{
-              y: ['-50%', 'calc(-50% - 20px)', '-50%'],
+              y: ['-50%', 'calc(-50% - 15px)', '-50%'],
             }}
             transition={{
               duration: 8,
@@ -105,23 +106,23 @@ const Index = () => {
           />
           
           {/* Floating particles around the robot */}
-          {[...Array(8)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 rounded-full bg-primary/60 z-20"
+              className="absolute w-1.5 h-1.5 rounded-full bg-primary/50 z-20"
               style={{
-                right: `${10 + i * 8}%`,
-                top: `${20 + (i % 4) * 18}%`,
+                right: `${15 + i * 10}%`,
+                top: `${25 + (i % 3) * 20}%`,
               }}
               animate={{
-                y: [0, -30, 0],
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.8, 1],
+                y: [0, -25, 0],
+                opacity: [0.2, 0.6, 0.2],
+                scale: [1, 1.5, 1],
               }}
               transition={{
-                duration: 4 + i * 0.6,
+                duration: 4 + i * 0.5,
                 repeat: Infinity,
-                delay: i * 0.4,
+                delay: i * 0.3,
                 ease: 'easeInOut',
               }}
             />
