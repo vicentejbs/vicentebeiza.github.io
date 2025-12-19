@@ -12,7 +12,6 @@ import Proyectos from "./pages/Proyectos";
 import CVs from "./pages/CVs";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
-import CustomCursor from "@/components/CustomCursor";
 import Loader from "@/components/Loader";
 
 const queryClient = new QueryClient();
@@ -34,7 +33,7 @@ const App = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <CustomCursor />
+              
               <Toaster />
               <Sonner />
               <HashRouter>
