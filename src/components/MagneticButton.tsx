@@ -1,5 +1,6 @@
 import { useRef, ReactNode } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useSound } from '@/contexts/SoundContext';
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const MagneticButton = ({
   strength = 0.3,
 }: MagneticButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const { playHover, playClick } = useSound();
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -42,6 +44,15 @@ const MagneticButton = ({
     y.set(0);
   };
 
+  const handleMouseEnter = () => {
+    playHover();
+  };
+
+  const handleClick = () => {
+    playClick();
+    onClick?.();
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -49,7 +60,8 @@ const MagneticButton = ({
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onClick={handleClick}
       whileTap={{ scale: 0.95 }}
     >
       {children}
