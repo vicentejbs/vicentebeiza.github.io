@@ -44,18 +44,19 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Profile Image - Smaller, offset */}
+            {/* Profile Image - Circular with decorative elements */}
             <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in opacity-0 stagger-2">
               <div className="relative">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-sand-dark/30 shadow-elevated">
                   <img
                     src={profileImage}
                     alt="Vicente Beiza Silva"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
-                {/* Subtle line accent */}
-                <div className="absolute -bottom-3 -left-3 w-full h-full border border-taupe/30 rounded-2xl -z-10" />
+                {/* Decorative elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full -z-10" />
+                <div className="absolute -top-4 -left-4 w-16 h-16 border-2 border-sand-dark/50 rounded-full" />
               </div>
             </div>
           </div>
