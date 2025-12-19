@@ -199,7 +199,7 @@ interface BotanicalFlowersProps {
 const BotanicalFlowers = ({ variant = 'corner', className = '' }: BotanicalFlowersProps) => {
   if (variant === 'corner') {
     return (
-      <div className={`absolute pointer-events-none text-primary/30 ${className}`}>
+      <div className={`absolute pointer-events-none text-primary/50 ${className}`}>
         {/* Top right corner */}
         <div className="absolute -top-10 -right-10 rotate-45">
           <LineFlower delay={0.2} scale={1.2} />
@@ -224,7 +224,7 @@ const BotanicalFlowers = ({ variant = 'corner', className = '' }: BotanicalFlowe
 
   if (variant === 'scattered') {
     return (
-      <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/20 ${className}`}>
+      <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/40 ${className}`}>
         <div className="absolute top-[10%] right-[5%] rotate-12">
           <LineFlower delay={0.2} scale={0.9} />
         </div>
@@ -246,7 +246,7 @@ const BotanicalFlowers = ({ variant = 'corner', className = '' }: BotanicalFlowe
 
   // Border variant
   return (
-    <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/25 ${className}`}>
+    <div className={`absolute inset-0 pointer-events-none overflow-hidden text-primary/45 ${className}`}>
       {/* Top border */}
       <div className="absolute top-0 left-1/4">
         <SimpleBlossom delay={0.2} scale={0.6} />
