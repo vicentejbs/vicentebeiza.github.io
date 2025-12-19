@@ -113,7 +113,7 @@ const Proyectos = () => {
             <RevealText delay={0.2}>
               <h1 className="font-display text-5xl md:text-6xl font-medium text-foreground leading-tight mb-6">
                 <GlitchText>Laboratorio</GlitchText> de <br />
-                <span className="text-zinc-600">
+                <span className="text-muted-foreground">
                   <GlitchText>Ideas.</GlitchText>
                 </span>
               </h1>
@@ -139,7 +139,7 @@ const Proyectos = () => {
                   ease: [0.22, 1, 0.36, 1]
                 }}
                 whileHover={{ scale: 1.01, y: -5 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 hover:bg-card transition-all duration-500"
               >
                 {/* Link Overlay */}
                 {proyecto.link && (
@@ -197,7 +197,7 @@ const Proyectos = () => {
 
                   {/* Description */}
                   <div className="md:col-span-4">
-                    <p className="text-zinc-400 font-light leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
+                    <p className="text-muted-foreground font-light leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">
                       {proyecto.descripcion}
                     </p>
                   </div>
@@ -206,7 +206,7 @@ const Proyectos = () => {
                   <div className="md:col-span-3 flex flex-col items-end gap-6 justify-between h-full">
                     <MagneticButton strength={0.5}>
                       <motion.div 
-                        className="p-3 rounded-full border border-white/10 text-white relative overflow-hidden"
+                        className="p-3 rounded-full border border-border text-foreground relative overflow-hidden"
                         whileHover={{ 
                           borderColor: 'hsl(var(--primary))',
                           rotate: -45
@@ -214,13 +214,13 @@ const Proyectos = () => {
                         transition={{ duration: 0.3 }}
                       >
                         <motion.div
-                          className="absolute inset-0 bg-white"
+                          className="absolute inset-0 bg-primary"
                           initial={{ scale: 0 }}
                           whileHover={{ scale: 1 }}
                           transition={{ duration: 0.3 }}
                           style={{ borderRadius: '50%' }}
                         />
-                        <ArrowUpRight size={24} className="relative z-10 group-hover:text-black transition-colors" />
+                        <ArrowUpRight size={24} className="relative z-10 group-hover:text-primary-foreground transition-colors" />
                       </motion.div>
                     </MagneticButton>
                   </div>
@@ -234,7 +234,7 @@ const Proyectos = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1 + techIndex * 0.05 }}
                         whileHover={{ scale: 1.1, backgroundColor: 'hsl(var(--primary) / 0.2)' }}
-                        className="text-xs text-zinc-500 bg-black/40 border border-white/5 rounded-full px-3 py-1 backdrop-blur-sm transition-colors"
+                        className="text-xs text-muted-foreground bg-secondary/50 border border-border rounded-full px-3 py-1 backdrop-blur-sm transition-colors"
                       >
                         {tech}
                       </motion.span>
