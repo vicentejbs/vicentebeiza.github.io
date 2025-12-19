@@ -100,7 +100,7 @@ const Index = () => {
               ¿Conversamos?
             </h2>
             <p className="text-muted-foreground mb-6">
-              Estoy buscando oportunidades laborales y estoy abierto a ofertas de cualquier sector y nivel. Si tienes algo en mente, escríbeme.
+              Estoy abierto a todo: trabajo, prácticas, proyectos, lo que sea. Si además tiene que ver con salud o bienestar, mejor aún, pero no me cierro a nada.
             </p>
             <Link
               to="/contacto"
