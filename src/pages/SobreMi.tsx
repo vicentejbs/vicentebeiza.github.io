@@ -173,22 +173,22 @@ const SobreMi = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
             {[
               {
-                icon: "🧠",
+                num: "01",
                 title: "Neurociencia & Tech",
                 desc: "Explorando interfaces cerebro-computadora y análisis de señales biológicas."
               },
               {
-                icon: "⚡",
+                num: "02",
                 title: "Deporte & Alto Rendimiento",
                 desc: "Entendiendo la fisiología y la mente para romper barreras físicas."
               },
               {
-                icon: "🤝",
+                num: "03",
                 title: "Liderazgo & Equipo",
                 desc: "Ex-Delegado de Deportes, construyendo comunidades y gestionando talento."
               },
               {
-                icon: "📚",
+                num: "04",
                 title: "Aprendizaje Continuo",
                 desc: "Devorador de libros, desde papers técnicos hasta filosofía y novelas."
               }
@@ -208,11 +208,10 @@ const SobreMi = () => {
               >
                 <div className="flex items-start gap-4 mb-3">
                   <motion.span 
-                    className="text-2xl pt-1"
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
+                    className="text-xs text-primary font-mono tracking-widest pt-2"
+                    whileHover={{ x: 5, color: 'hsl(var(--accent))' }}
                   >
-                    {item.icon}
+                    [{item.num}]
                   </motion.span>
                   <h3 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
                     {item.title}
