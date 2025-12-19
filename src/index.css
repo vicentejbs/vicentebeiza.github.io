@@ -149,6 +149,125 @@
   }
 }
 
+/* ============================================
+   ADVANCED MOTION DESIGN ANIMATIONS
+   ============================================ */
+
+/* Organic Float Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(1deg);
+  }
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Wave Animation */
+@keyframes wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Subtle Glitch */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* Morph */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+/* Neural Pulse */
+@keyframes neuralPulse {
+  0%, 100% {
+    stroke-dashoffset: 1000;
+    opacity: 0.1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+}
+
+/* Scan Line */
+@keyframes scanLine {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Basic keyframes */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -180,9 +299,89 @@
   }
 }
 
-/* Custom scrollbar */
+/* Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-morph {
+  animation: morph 8s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--primary) / 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-all duration-500 ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -15px hsl(var(--primary) / 0.2);
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+}
+
+/* Text Reveal */
+.text-reveal {
+  background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--foreground))) no-repeat;
+  background-size: 0% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: revealText 0.8s ease-out forwards;
+}
+
+@keyframes revealText {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+/* Grain Texture Overlay */
+.grain-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Smooth Scrollbar */
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -191,9 +390,15 @@
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--border));
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary) / 0.5);
+  outline-offset: 4px;
 }
