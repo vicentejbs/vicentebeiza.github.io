@@ -1,8 +1,17 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 
 const proyectos = [
+  {
+    titulo: "Ingeniería Beiza y Beiza",
+    categoria: "Desarrollo & IA",
+    descripcion:
+      "Plataforma corporativa moderna para empresa de ingeniería, desarrollada en colaboración con Inteligencia Artificial. Enfocada en funcionalidad real, SEO y presencia digital profesional.",
+    tecnologias: ["React", "Tailwind CSS", "Vite", "AI-Assisted"],
+    color: "from-indigo-500/20 to-purple-500/20",
+    link: "https://beizaybeiza.cl"
+  },
   {
     titulo: "Software y Simulaciones",
     categoria: "Desarrollo",
@@ -70,6 +79,17 @@ const Proyectos = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
               >
+                {/* Link Overlay */}
+                {proyecto.link && (
+                  <a
+                    href={proyecto.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-20"
+                    aria-label={`Ver proyecto ${proyecto.titulo}`}
+                  />
+                )}
+
                 {/* Hover Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${proyecto.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl`} />
 
@@ -79,8 +99,9 @@ const Proyectos = () => {
                     <span className="text-xs font-mono text-primary/80 uppercase tracking-widest border border-primary/20 px-2 py-1 rounded">
                       {proyecto.categoria}
                     </span>
-                    <h3 className="font-display text-3xl md:text-4xl text-foreground mt-2 group-hover:translate-x-2 transition-transform duration-300">
+                    <h3 className="font-display text-3xl md:text-4xl text-foreground mt-2 group-hover:translate-x-2 transition-transform duration-300 flex items-center gap-2">
                       {proyecto.titulo}
+                      {proyecto.link && <ExternalLink size={20} className="text-muted-foreground opacity-50 group-hover:text-primary group-hover:opacity-100 transition-all" />}
                     </h3>
                   </div>
 
