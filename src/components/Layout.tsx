@@ -1,6 +1,5 @@
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import FloatingParticles from "./FloatingParticles";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 interface LayoutProps {
@@ -13,8 +12,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-hero grain-overlay">
-      {/* Floating particles background */}
-      <FloatingParticles />
       
       <Navigation />
       <main className="flex-1 pt-16 md:pt-20 relative z-10">
