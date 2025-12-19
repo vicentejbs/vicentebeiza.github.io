@@ -100,7 +100,7 @@ const Index = () => {
               ¿Conversamos?
             </h2>
             <p className="text-muted-foreground mb-6">
-              Si tienes alguna oportunidad, proyecto o idea en mente, me encantaría escucharte. Estoy abierto a todo tipo de colaboraciones.
+              Estoy buscando oportunidades laborales y estoy abierto a ofertas de cualquier sector y nivel. Si tienes algo en mente, escríbeme.
             </p>
             <Link
               to="/contacto"
