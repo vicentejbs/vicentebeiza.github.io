@@ -7,6 +7,7 @@ import MagneticButton from "@/components/MagneticButton";
 import RevealText from "@/components/RevealText";
 import GlitchText from "@/components/GlitchText";
 import OrganicShape from "@/components/OrganicShape";
+import robotDoctorImage from "@/assets/robot-doctor.png";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,6 +19,10 @@ const Index = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  
+  // Parallax for robot image
+  const robotY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const robotScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
   return (
     <Layout>
@@ -61,6 +66,62 @@ const Index = () => {
             }}
           />
         </div>
+
+        {/* Robot Doctor Image - Decorative */}
+        <motion.div
+          className="absolute right-0 bottom-0 w-[400px] md:w-[500px] lg:w-[600px] h-auto pointer-events-none z-5 hidden md:block"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ y: robotY, scale: robotScale }}
+        >
+          {/* Glow effect behind the robot */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-radial from-primary/20 via-accent/10 to-transparent blur-3xl"
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [0.9, 1.1, 0.9],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          
+          <motion.img
+            src={robotDoctorImage}
+            alt="Robot médico rodeado de flores - Fusión de tecnología y salud"
+            className="w-full h-auto relative z-10 opacity-80 mix-blend-lighten"
+            animate={{
+              y: [0, -15, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          
+          {/* Floating particles around the robot */}
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-primary/60"
+              style={{
+                left: `${20 + i * 15}%`,
+                top: `${30 + (i % 3) * 20}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 0.8, 0.3],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.3,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </motion.div>
 
         <motion.div 
           className="section-container relative z-10"
